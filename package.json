@@ -1,0 +1,28 @@
+{
+  "name": "nft",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "hardhat compile",
+    "deploy": "hardhat run scripts/deploy.ts --network",
+    "test": "hardhat test",
+    "verify": "hardhat verify --network",
+    "start": "react-scripts start"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/react": "^18.3.5",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.7",
+    "openzeppelin-solidity": "^4.6.0",
+    "web3": "^1.7.5"
+  },
+  "dependencies": {
+    "@types/react-dom": "^18.3.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.5.4"
+  }
+}
