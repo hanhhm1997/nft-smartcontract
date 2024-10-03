@@ -31,11 +31,13 @@ contract Marketplace is ERC721Enumerable {
             nft.isApprovedForAll(msg.sender, address(this)),
             "chua approve"
         );
-        _nftAuction[tokenId]._highestBid = price;
-        _nftAuction[tokenId]._time = block.timestamp + time * 60;
-        _nftAuction[tokenId]._auctioneer = msg.sender;
-        _nftAuction[tokenId].completed = false;
-        _nftAuction[tokenId]._highestBidder = address(0);
+        _nftAuction[tokenId] = NftAuction({
+            _highestBid: price,
+            _time: block.timestamp + time * 60,
+            _auctioneer: msg.sender,
+            completed: false,
+            _highestBidder: address(0)
+        });
         nft.transferFrom(msg.sender, address(this), tokenId);
     }
     function listAuction() public view returns (uint256[] memory tokenIds) {
@@ -62,7 +64,6 @@ contract Marketplace is ERC721Enumerable {
             _nftAuction[tokenId].completed == false,
             "dau gia da hoan thanh"
         );
-        require(msg.sender.balance > msg.value, "ban khong du tien de dau gia");
         require(
             msg.value > _nftAuction[tokenId]._highestBid,
             "gia nho hon gia hien tai"
@@ -95,7 +96,7 @@ contract Marketplace is ERC721Enumerable {
         );
         require(
             block.timestamp > _nftAuction[tokenId]._time,
-            "chua den het thoi gian dau gia"
+            "chua het het thoi gian dau gia"
         );
         require(
             _nftAuction[tokenId].completed == false,
@@ -159,24 +160,25 @@ contract Marketplace is ERC721Enumerable {
     }
 
     function getInfoAuction(
-        uint256 tokenId
-    ) external view returns (NftAuction memory nft) {
-        return _nftAuction[tokenId];
-    }
-    function getInfoAuctionTime(
-        uint256 tokenId
-    ) external view returns (uint256) {
-        return _nftAuction[tokenId]._time;
-    }
-    function getInfoAuctionAuctioneer(
-        uint256 tokenId
-    ) external view returns (address) {
-        return _nftAuction[tokenId]._auctioneer;
-    }
-
-    function getInfoAuctionHighestBid(
-        uint256 tokenId
-    ) external view returns (uint256) {
-        return _nftAuction[tokenId]._highestBid;
+        uint256 tokenID
+    )
+        public
+        view
+        returns (
+            uint256 idToken,
+            uint256 time,
+            address auctioneer,
+            uint256 highestBid,
+            address highestbidder
+        )
+    {
+        NftAuction storage info = _nftAuction[tokenID];
+        return (
+            tokenID,
+            info._time,
+            info._auctioneer,
+            info._highestBid,
+            info._highestBidder
+        );
     }
 }

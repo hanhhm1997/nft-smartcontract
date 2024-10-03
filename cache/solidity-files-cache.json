@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Projects\\nft-smartcontract\\contracts\\marketplace.sol": {
-      "lastModificationDate": 1726411817926,
-      "contentHash": "dd394fc0c479f3d61e11ca2059a7f779",
+      "lastModificationDate": 1726548323566,
+      "contentHash": "443cebf760e1308c6e53cdbb285715ea",
       "sourceName": "contracts/marketplace.sol",
       "solcConfig": {
         "version": "0.8.10",
@@ -666,7 +666,7 @@
       ]
     },
     "C:\\Projects\\nft-smartcontract\\contracts\\NFT.sol": {
-      "lastModificationDate": 1726401140435,
+      "lastModificationDate": 1726547852794,
       "contentHash": "25f129a1ada30070487b4079136b3196",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
@@ -744,8 +744,8 @@
       ]
     },
     "C:\\Projects\\nft-smartcontract\\node_modules\\openzeppelin-solidity\\contracts\\access\\Ownable.sol": {
-      "lastModificationDate": 1725552218028,
-      "contentHash": "e436cea06129be2c73cda4b1acc848b5",
+      "lastModificationDate": 1726544645569,
+      "contentHash": "cdf5bc72b81ab9ab73bdea274691c620",
       "sourceName": "openzeppelin-solidity/contracts/access/Ownable.sol",
       "solcConfig": {
         "version": "0.8.10",
@@ -887,6 +887,41 @@
       ],
       "artifacts": [
         "IERC20Permit"
+      ]
+    },
+    "C:\\Projects\\nft-smartcontract\\contracts\\shareToEarn.sol": {
+      "lastModificationDate": 1726564385296,
+      "contentHash": "2c0c69844d460bb89058093c6a6b71db",
+      "sourceName": "contracts/shareToEarn.sol",
+      "solcConfig": {
+        "version": "0.8.10",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "openzeppelin-solidity/contracts/token/ERC20/utils/SafeERC20.sol"
+      ],
+      "versionPragmas": [],
+      "artifacts": [
+        "ShareToEarn"
       ]
     }
   }
